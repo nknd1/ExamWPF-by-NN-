@@ -46,6 +46,11 @@ namespace ExamWPF_by_NN_
                 {
                     Name = "по возрастанию(цена)",
                     sort = new SortDescription("Cost",ListSortDirection.Ascending)
+                },
+                new SortItem()
+                {
+                    Name = "по убыванию(цена)",
+                    sort = new SortDescription("Cost", ListSortDirection.Descending)
                 }
             };
             DataContext = this;
@@ -67,11 +72,41 @@ namespace ExamWPF_by_NN_
         {
             ApplySort();
         }
-       /* private void ProductView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Find(string search)
         {
-            Product product = ProductView.SelectedItem as Product;
-            if (product != null) return;       
+            search = search.ToLower();
+
+            var view = CollectionViewSource.GetDefaultView(ProductView.ItemsSource);
+            if (view == null) return;
+
+            if (search.Length == 0)
+            {
+                view.Filter= null;
+            }
+            else
+            {
+                view.Filter = new Predicate<object>((object o) =>
+                {
+                    Product product = o as Product;
+                    if (product == null) return false;
+                    return product.Name.ToLower().IndexOf(search) != -1;
+                });
+            }
         }
-       */
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                Find(textBox.Text);
+            }
+        }
+        /* private void ProductView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             Product product = ProductView.SelectedItem as Product;
+             if (product != null) return;       
+        }
+        */
     }
 }
