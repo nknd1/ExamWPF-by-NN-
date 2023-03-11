@@ -22,12 +22,13 @@ namespace ExamWPF_by_NN_
     /// </summary>
     public partial class ProductPage : Page
     {
+        dbconnection dbconn;
         public ProductCategory ProductCategory { get; set; }
         public ProductPage(dbconnection dbconnection)
         {
             InitializeComponent();
             ProductCategory = new ProductCategory();
-            dbconnection = dbconnection;
+            dbconn = dbconnection;
             DataContext = this;
             ProductBlock.DataContext = new ProductCategory();
 
@@ -53,11 +54,15 @@ namespace ExamWPF_by_NN_
             }
             if (product.Manufacturer.Length == 0)
             {
-                MessageBox.Show("Укажите проихводителя");
+                MessageBox.Show("Укажите производителя");
                 return;
             }
-
+            dbconn.Product.Add(product);
+            dbconn.SaveChanges();
+            MessageBox.Show("Product добавлен");
+            ProductBlock.DataContext = new Product();  
         }
+        
 
     }
 }
