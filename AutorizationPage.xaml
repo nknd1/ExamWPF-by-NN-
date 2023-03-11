@@ -1,0 +1,34 @@
+﻿<Page x:Class="ExamWPF_by_NN_.AutorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ExamWPF_by_NN_"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AutorizationPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Label Content="Введите логин:" HorizontalAlignment="Center" Margin="0" Background="Wheat"></Label>
+            <TextBox x:Name="tbLogin" HorizontalAlignment="Center" Height="24" Width="200"></TextBox>
+            <Label Content="Введите пароль:" HorizontalAlignment="Center" Background="Wheat" Margin="0 10 0 0"></Label>
+            <TextBox Name="tbPassword" HorizontalAlignment="Center" Width="200" Margin="0" Height="24"></TextBox>
+            <StackPanel Name="CaptchaBlock" Visibility="Collapsed">
+                <Label Name ="lCaptcha" FontSize="30"></Label>
+            </StackPanel>
+            <Button Content="Войти" Width="100" Height="20" Margin="10"></Button>
+    
+        </StackPanel>
+    </Grid>
+</Page>

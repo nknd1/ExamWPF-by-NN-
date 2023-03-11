@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AutorizationPage.xaml.cs">
+      <DependentUpon>AutorizationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manufacturer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="AutorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

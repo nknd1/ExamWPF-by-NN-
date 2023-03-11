@@ -12,6 +12,7 @@ namespace ExamWPF_by_NN_
         private static ProductPage productPage;
         private static Menu menuPage;
         private static ProductList productList;
+        private static AutorizationPage autorizationPage;
         public static dbconnection dbconn
         {
             get
@@ -55,6 +56,17 @@ namespace ExamWPF_by_NN_
                     productList = new ProductList(dbconn);
                 }
                 return productList;
+            }
+        }
+        public static AutorizationPage Autorization
+        {
+            get
+            {
+                if (autorizationPage == null)
+                {
+                    autorizationPage = new AutorizationPage(dbconn);
+                }
+                return autorizationPage;
             }
         }
     }

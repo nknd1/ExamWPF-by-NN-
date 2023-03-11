@@ -16,17 +16,14 @@ using System.Windows.Shapes;
 namespace ExamWPF_by_NN_
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AutorizationPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AutorizationPage : Page
     {
-        public MainWindow()
+        public AutorizationPage(dbconnection dbconnection)
         {
             InitializeComponent();
-            AppFr.Navigate(Pages.Autorization);
-        }
 
-       
-        
+        }
     }
 }
