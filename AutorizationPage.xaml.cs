@@ -30,7 +30,6 @@ namespace ExamWPF_by_NN_
             InitializeComponent();
             this.dbconnection = dbconnection;
             random = new Random();
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
