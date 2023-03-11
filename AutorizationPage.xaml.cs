@@ -20,34 +20,59 @@ namespace ExamWPF_by_NN_
     /// </summary>
     public partial class AutorizationPage : Page
     {
+        private dbconnection dbconnection;
+        private bool isCaptchaRequired = false;
+        private string captchaChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwyz1234567890";
+        private string captchaCode = "";
+        private Random random;
         public AutorizationPage(dbconnection dbconnection)
         {
             InitializeComponent();
-            string login = tbLogin.Text.Trim();
-            string password = tbPassword.Text.Trim();
-            if (login.Length == 0)
-            {
-                if (password.Length == 0)
-                {
-                
-                }
-                else MessageBox.Show("Введите логин");
-            }
-                else MessageBox.Show("Введите пароль");                    
+            this.dbconnection = dbconnection;
+            random = new Random();
+
         }
 
-        private void Next(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // User user = dbconnection.User.Where(user => user.UserLogin == login && user.UserPassword == password).FirstOrDefault();
-            // if (user == null)
-            // {
-            //     MessageBox.Show("Неверный логин/пароль);
-            //     CaptchaBlock.Visibility - Visibility.Visible;
-            //     isCaptchaRequired = true;
-            //     GenerateCaptcha();
-            //     return;
-            // }
-            
+            if (isCaptchaRequired == true)
+            {
+                if (captchaCode == null)
+                {
+                    return;
+                }
+            }
+            string login = tbLogin.Text.Trim();
+            if (login.Length == 0)
+            {
+                MessageBox.Show("Введите логин");
+            }
+            string password = tbPassword.Text.Trim();
+            if (password.Length == 0)
+            {
+                MessageBox.Show("Введите пароль");
+            }
+
+            User user = dbconnection.User.Where(User => User.UserLogin== login && User.UserPassword == password).FirstOrDefault();
+            if (user == null) 
+            {
+                MessageBox.Show("Неверный логин/пароль");
+            }
         }
     }
 }
+        
+       
+       
+        // User user = dbconnection.User.Where(user => user.UserLogin == login && user.UserPassword == password).FirstOrDefault();
+        // if (user == null)
+        // {
+        //     MessageBox.Show("Неверный логин/пароль);
+        //     CaptchaBlock.Visibility - Visibility.Visible;
+        //     isCaptchaRequired = true;
+        //     GenerateCaptcha();
+        //     return;
+        // }
+
+        
+
