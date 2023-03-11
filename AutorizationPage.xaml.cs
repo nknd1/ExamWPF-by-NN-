@@ -23,7 +23,31 @@ namespace ExamWPF_by_NN_
         public AutorizationPage(dbconnection dbconnection)
         {
             InitializeComponent();
+            string login = tbLogin.Text.Trim();
+            string password = tbPassword.Text.Trim();
+            if (login.Length == 0)
+            {
+                if (password.Length == 0)
+                {
+                
+                }
+                else MessageBox.Show("Введите логин");
+            }
+                else MessageBox.Show("Введите пароль");                    
+        }
 
+        private void Next(object sender, RoutedEventArgs e)
+        {
+            // User user = dbconnection.User.Where(user => user.UserLogin == login && user.UserPassword == password).FirstOrDefault();
+            // if (user == null)
+            // {
+            //     MessageBox.Show("Неверный логин/пароль);
+            //     CaptchaBlock.Visibility - Visibility.Visible;
+            //     isCaptchaRequired = true;
+            //     GenerateCaptcha();
+            //     return;
+            // }
+            
         }
     }
 }

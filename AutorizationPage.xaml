@@ -27,7 +27,7 @@
             <StackPanel Name="CaptchaBlock" Visibility="Collapsed">
                 <Label Name ="lCaptcha" FontSize="30"></Label>
             </StackPanel>
-            <Button Content="Войти" Width="100" Height="20" Margin="10"></Button>
+            <Button Content="Войти" Width="100" Height="20" Margin="10" Click="Next"></Button>
     
         </StackPanel>
     </Grid>
