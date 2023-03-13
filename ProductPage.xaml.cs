@@ -42,6 +42,9 @@ namespace ExamWPF_by_NN_
         {
             Product product = ProductBlock.DataContext as Product;
             product.Name = tbCategoryName.Text.Trim();
+            product.Provider = tbProvider.Text.Trim();
+            product.Unit = tbUnitOfMeasurement.Text.Trim();
+            product.Description = tbDescription.Text.Trim();
             if (product.Name.Length == 0 ) 
             {
                 MessageBox.Show("Введите название товара");
@@ -52,9 +55,9 @@ namespace ExamWPF_by_NN_
                 MessageBox.Show("Категория не выбрана");
                 return;
             }
-            if (product.Manufacturer.Length == 0)
+            if (product.Provider.Length == 0)
             {
-                MessageBox.Show("Укажите производителя");
+                MessageBox.Show("Укажите поставщика");
                 return;
             }
             dbconn.Product.Add(product);
@@ -63,10 +66,11 @@ namespace ExamWPF_by_NN_
             ProductBlock.DataContext = new Product();  
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SelectImageAndAdd(object sender, RoutedEventArgs e)
         {
             Product product = ProductBlock.DataContext as Product;
-            if (product == null) return;
+            if (product == null)
+                return;
 
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Filter = "Файлы изображений|*.jpg;*.jpeg;*.png;";

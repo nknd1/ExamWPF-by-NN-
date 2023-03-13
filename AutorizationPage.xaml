@@ -28,7 +28,7 @@
                 <Label Name ="lCaptcha" FontSize="30"></Label>
             </StackPanel>
             <Button Content="Войти" Width="100" Height="20" Margin="10" Click="Button_Click"></Button>
-    
+                
         </StackPanel>
     </Grid>
 </Page>

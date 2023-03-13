@@ -102,11 +102,13 @@ namespace ExamWPF_by_NN_
                 Find(textBox.Text);
             }
         }
-        /* private void ProductView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ProductView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-             Product product = ProductView.SelectedItem as Product;
-             if (product != null) return;       
+            Product selectedProduct = ProductView.SelectedItem as Product;
+            if (selectedProduct != null)
+            Pages.Edit.SetProduct(selectedProduct);
+            NavigationService.Navigate(Pages.Edit);
+            return;
         }
-        */
     }
 }

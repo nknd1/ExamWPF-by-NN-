@@ -56,6 +56,7 @@ namespace ExamWPF_by_NN_
             if (user == null) 
             {
                 MessageBox.Show("Неверный логин/пароль");
+                return;
             }
             NavigationService.Navigate(Pages.MenuPage);
         }

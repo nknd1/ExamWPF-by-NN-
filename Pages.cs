@@ -13,6 +13,7 @@ namespace ExamWPF_by_NN_
         private static Menu menuPage;
         private static ProductList productList;
         private static AutorizationPage autorizationPage;
+        private static ProductEdit productEdit;
         public static dbconnection dbconn
         {
             get
@@ -40,7 +41,7 @@ namespace ExamWPF_by_NN_
         {
             get
             {
-                if(menuPage == null)
+                if (menuPage == null)
                 {
                     menuPage = new Menu();
                 }
@@ -67,6 +68,17 @@ namespace ExamWPF_by_NN_
                     autorizationPage = new AutorizationPage(dbconn);
                 }
                 return autorizationPage;
+            }
+        }
+        public static ProductEdit Edit
+        {
+            get
+            {
+                if (productEdit == null)
+                {
+                    productEdit = new ProductEdit(dbconn);
+                }
+                return productEdit;
             }
         }
     }
