@@ -77,6 +77,11 @@
                                 <Run FontSize="16" Text="{Binding Manufacturer}"></Run>
                                 <Run></Run>
                             </TextBlock>
+                            <TextBlock TextAlignment="Left">
+                            <Run FontSize="16">Артикул:</Run>
+                            <LineBreak></LineBreak>
+                            <Run FontSize="14" Text="{Binding ArticleNumber}"></Run>
+                            </TextBlock>
                         </StackPanel>
                         <StackPanel VerticalAlignment="Top" Grid.Column="2">
                             <TextBlock TextAlignment="Right">

@@ -28,7 +28,7 @@ namespace ExamWPF_by_NN_
         }
         public static ProductPage Product
         {
-            get
+            get 
             {
                 if (productPage == null)
                 {

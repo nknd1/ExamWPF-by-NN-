@@ -19,7 +19,7 @@ namespace ExamWPF_by_NN_
     /// Логика взаимодействия для Menu.xaml
     /// </summary>
     public partial class Menu : Page
-    {
+    {     
         public Menu()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace ExamWPF_by_NN_
 
         private void AddProduct(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(Pages.Product);
+            NavigationService.Navigate(Pages.Product);     
         }
 
         private void ViewProduct(object sender, RoutedEventArgs e)
