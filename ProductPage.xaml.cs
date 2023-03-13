@@ -86,7 +86,7 @@ namespace ExamWPF_by_NN_
                 bitmap.BeginInit();
                 bitmap.StreamSource = fileStream;
                 bitmap.EndInit();
-                ImageBlock.Source = bitmap;
+                ImageBlockk.Source = bitmap;
             }
         }
 
