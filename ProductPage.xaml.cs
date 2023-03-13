@@ -91,6 +91,11 @@ namespace ExamWPF_by_NN_
 
 
         }
+
+        private void BackToMenu(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
 

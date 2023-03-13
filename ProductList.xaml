@@ -95,9 +95,9 @@
             </ListView.ItemTemplate>
         </ListView>
         <Grid>
-            <WrapPanel Orientation="Horizontal">
-                <Button Width="20" Height="20" Content="B" Click="Button_Click"></Button>
-            </WrapPanel>
+            <Border>
+                <Button Width="20" Height="20" Content="bck" Click="Button_Click"></Button>
+            </Border>
         </Grid>
     </Grid>
 

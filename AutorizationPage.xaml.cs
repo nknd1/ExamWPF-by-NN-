@@ -36,9 +36,13 @@ namespace ExamWPF_by_NN_
         {
             if (isCaptchaRequired == true)
             {
-                if (captchaCode == null)
+                if (CaptchaBlok == null)
                 {
+                  /*  CaptchaBlok.Visibility - Visibility.Visible;
+                    isCaptchaRequired = true;
+                    GenerateCaptcha();
                     return;
+                  */
                 }
             }
             string login = tbLogin.Text.Trim();
