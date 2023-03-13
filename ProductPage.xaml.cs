@@ -57,7 +57,7 @@ namespace ExamWPF_by_NN_
             }
             if (product.Provider.Length == 0)
             {
-                MessageBox.Show("Укажите поставщика");
+                MessageBox.Show("Укажиие поставщика");
                 return;
             }
             dbconn.Product.Add(product);

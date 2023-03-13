@@ -29,7 +29,7 @@
             </Grid.ColumnDefinitions>
             <TextBox  Grid.Column="0" Margin="5" TextChanged="TextBox_TextChanged"></TextBox>
             <ComboBox DisplayMemberPath="Name" Grid.Column="1" Margin="5" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding SortLists}"></ComboBox>
-            <ComboBox Grid.Column="2" Margin="5" DisplayMemberPath="name" SelectedItem="{Binding SelectedSortCategory}"></ComboBox>
+            <ComboBox Grid.Column="2" Margin="5" DisplayMemberPath="Name" SelectedItem="{Binding SelectedSortCategory}" SelectionChanged="cbProvider" ItemsSource="{Binding SortLists}"></ComboBox>
             <ComboBox Grid.Column="3" Margin="5"></ComboBox>
         </Grid>
         <ListView x:Name="ProductView" HorizontalAlignment="Stretch" Background="WhiteSmoke" Grid.Row="2" Grid.Column="1" SelectionChanged="ProductView_SelectionChanged">
@@ -63,6 +63,18 @@
                                 <Run FontSize="20">Количество на складе:</Run>
                                 <LineBreak></LineBreak>
                                 <Run FontSize="16" Text="{Binding QuantityInStock}"></Run>
+                                <Run></Run>
+                            </TextBlock>
+                            <TextBlock TextAlignment="Left">
+                                <Run FontSize="20">Поставщик:</Run>
+                                <LineBreak></LineBreak>
+                                <Run FontSize="16" Text="{Binding Provider}"></Run>
+                                <Run></Run>
+                            </TextBlock>
+                            <TextBlock TextAlignment="Left">
+                                <Run FontSize="20">Производитель:</Run>
+                                <LineBreak></LineBreak>
+                                <Run FontSize="16" Text="{Binding Manufacturer}"></Run>
                                 <Run></Run>
                             </TextBlock>
                         </StackPanel>

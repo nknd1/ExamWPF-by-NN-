@@ -110,5 +110,10 @@ namespace ExamWPF_by_NN_
             NavigationService.Navigate(Pages.Edit);
             return;
         }
+
+        private void cbProvider(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
     }
 }
