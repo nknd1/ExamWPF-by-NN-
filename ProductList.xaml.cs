@@ -30,7 +30,7 @@ namespace ExamWPF_by_NN_
         dbconnection dbconnection;
         public List<SortItem> SortLists { get; set; }
         public SortItem SelectedSortItem { get; set; }
-
+        
         public SortItem SelectedSortProductCategory { get; set; }
         public ProductList(dbconnection dbconnection)
         {
@@ -44,12 +44,12 @@ namespace ExamWPF_by_NN_
             {
                 new SortItem()
                 {
-                    Name = "по возрастанию(цена)",
+                    Name = "По возрастанию(Цена)",
                     sort = new SortDescription("Cost",ListSortDirection.Ascending)
                 },
                 new SortItem()
                 {
-                    Name = "по убыванию(цена)",
+                    Name = "По убыванию(Цена)",
                     sort = new SortDescription("Cost", ListSortDirection.Descending)
                 }
             };

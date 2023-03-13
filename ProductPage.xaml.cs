@@ -57,7 +57,7 @@ namespace ExamWPF_by_NN_
             }
             if (product.Provider.Length == 0)
             {
-                MessageBox.Show("Укажиие поставщика");
+                MessageBox.Show("Укажите поставщика");
                 return;
             }
             dbconn.Product.Add(product);
@@ -88,8 +88,6 @@ namespace ExamWPF_by_NN_
                 bitmap.EndInit();
                 ImageBlock.Source = bitmap;
             }
-
-
         }
 
         private void BackToMenu(object sender, RoutedEventArgs e)
