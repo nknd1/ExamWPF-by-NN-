@@ -115,5 +115,10 @@ namespace ExamWPF_by_NN_
         {
             
         }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
