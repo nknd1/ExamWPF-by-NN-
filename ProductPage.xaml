@@ -39,8 +39,8 @@
             <Button Width="119" x:Name="BtnSaveClick" Content="Добавить" Margin="0 5 0 10" Click="AddProduct"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <Image Width="300" Height="200" Name="ImageBlockk"></Image>
-            <Button Content="Выбрать иозбражение" x:Name="BtnSaveImage" Width="150" Click="SelectImageAndAdd"></Button>
+            <Image Width="300" Height="200" Name="ImageBlock"></Image>
+            <Button Width="200" Height="20" Click="Button_Click">add</Button>
         </StackPanel>
         <Border Grid.Column="1">
             <Button Content="back" Width="100" HorizontalAlignment="Left" Click="BackToMenu"></Button>

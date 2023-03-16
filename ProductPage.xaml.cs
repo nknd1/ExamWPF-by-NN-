@@ -22,16 +22,17 @@ namespace ExamWPF_by_NN_
     /// </summary>
     public partial class ProductPage : Page
     {
-        dbconnection dbconn;
+        private dbconnection dbconn;
         public ProductCategory ProductCategory { get; set; }
+        public Product product { get; set; }
         public ProductPage(dbconnection dbconnection)
         {
             InitializeComponent();
             ProductCategory = new ProductCategory();
-            dbconn = dbconnection;
+            this.dbconn = dbconnection;
             DataContext = this;
-            ProductBlock.DataContext = new ProductCategory();
-
+            ProductBlock.DataContext = new Product();
+            cbCategory.DisplayMemberPath = "Name";
             Binding binding = new Binding();
             binding.Source = dbconnection.ProductCategory.ToList();
             cbCategory.DisplayMemberPath = "Name";
@@ -45,7 +46,7 @@ namespace ExamWPF_by_NN_
             product.Provider = tbProvider.Text.Trim();
             product.Unit = tbUnitOfMeasurement.Text.Trim();
             product.Description = tbDescription.Text.Trim();
-            if (product.Name.Length == 0 ) 
+            if (product.Name.Length == 0)
             {
                 MessageBox.Show("Введите название товара");
                 return;
@@ -63,10 +64,17 @@ namespace ExamWPF_by_NN_
             dbconn.Product.Add(product);
             dbconn.SaveChanges();
             MessageBox.Show("Product добавлен");
-            ProductBlock.DataContext = new Product();  
+            ProductBlock.DataContext = new Product();
         }
 
-        private void SelectImageAndAdd(object sender, RoutedEventArgs e)
+
+
+        private void BackToMenu(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Product product = ProductBlock.DataContext as Product;
             if (product == null)
@@ -86,13 +94,8 @@ namespace ExamWPF_by_NN_
                 bitmap.BeginInit();
                 bitmap.StreamSource = fileStream;
                 bitmap.EndInit();
-                ImageBlockk.Source = bitmap;
+                ImageBlock.Source = bitmap;
             }
-        }
-
-        private void BackToMenu(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
         }
     }
 }

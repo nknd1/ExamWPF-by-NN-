@@ -40,7 +40,7 @@
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2">
                 <Image Width="300" Height="200" Name="ImageBlock"></Image>
-                <Button Content="Выбрать иозбражение" Width="150"></Button>
+                <Button Content="Выбрать иозбражение" Width="150" Click="Button_Click"></Button>
             </StackPanel>
         </Grid>
     </Grid>

@@ -34,16 +34,15 @@ namespace ExamWPF_by_NN_
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (isCaptchaRequired == true)
+            if (isCaptchaRequired)
             {
-                if (CaptchaBlok == null)
+                if (captchaCode != tbCaptcha.Text)
                 {
-                  /*  CaptchaBlok.Visibility - Visibility.Visible;
-                    isCaptchaRequired = true;
-                    GenerateCaptcha();
+                    MessageBox.Show("Неверный код");
                     return;
-                  */
                 }
+                isCaptchaRequired = false;
+                CaptchaBlock.Visibility = Visibility.Collapsed;
             }
             string login = tbLogin.Text.Trim();
             if (login.Length == 0)
@@ -56,13 +55,23 @@ namespace ExamWPF_by_NN_
                 MessageBox.Show("Введите пароль");
             }
 
-            User user = dbconnection.User.Where(User => User.UserLogin== login && User.UserPassword == password).FirstOrDefault();
-            if (user == null) 
+            User user = dbconnection.User.Where(User => User.UserLogin == login && User.UserPassword == password).FirstOrDefault();
+            if (user == null)
             {
                 MessageBox.Show("Неверный логин/пароль");
                 return;
             }
             NavigationService.Navigate(Pages.MenuPage);
+        }
+        private void GenerationCaptcha()
+        {
+            captchaCode = "";
+            for (int i = 0; i < 4; i++)
+            {
+                int index = random.Next(captchaChars.Length);
+                captchaCode += captchaChars[index];
+            }
+            lCaptcha.Content = captchaCode;
         }
     }
 }
