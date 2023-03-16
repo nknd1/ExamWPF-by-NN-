@@ -42,7 +42,7 @@ namespace ExamWPF_by_NN_
                     return;
                 }
                 isCaptchaRequired = false;
-                CaptchaBlock.Visibility = Visibility.Collapsed;
+                CaptchaBlock.Visibility = Visibility.Collapsed;       
             }
             string login = tbLogin.Text.Trim();
             if (login.Length == 0)

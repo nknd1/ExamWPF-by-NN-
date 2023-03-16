@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1" x:Name="ProductBlock">
             <Label FontSize="15">Артикул</Label>
-            <TextBox Name="tbArticle" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Article}"></TextBox>
+            <TextBox Name="tbArticle" FontSize="15" Margin="10" Foreground="Black" Text="{Binding ArticleNumber}"></TextBox>
             <Label FontSize="15">Название</Label>
             <TextBox Name="tbCategoryName" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Name}"></TextBox>
             <Label FontSize="15" Margin="3">Категория</Label>
