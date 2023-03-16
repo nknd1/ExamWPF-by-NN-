@@ -46,6 +46,7 @@ namespace ExamWPF_by_NN_
             product.Provider = tbProvider.Text.Trim();
             product.Unit = tbUnitOfMeasurement.Text.Trim();
             product.Description = tbDescription.Text.Trim();
+            product.Manufacturer = tbManufacturer.Text.Trim();
             if (product.Name.Length == 0)
             {
                 MessageBox.Show("Введите название товара");
@@ -59,6 +60,16 @@ namespace ExamWPF_by_NN_
             if (product.Provider.Length == 0)
             {
                 MessageBox.Show("Укажите поставщика");
+                return;
+            }
+            if (product.Manufacturer.Length == 0)
+            {
+                MessageBox.Show("Укажите производителя");
+                return;
+            }
+            if (product.ArticleNumber.Length == 0)
+            {
+                MessageBox.Show("Введите артикул");
                 return;
             }
             dbconn.Product.Add(product);
