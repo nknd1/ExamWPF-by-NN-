@@ -40,7 +40,7 @@
             <TextBox Name="tbPrice" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Cost}"></TextBox>
             <Label HorizontalAlignment="Left" FontSize="15">Описание</Label>
             <TextBox Height="20" Margin="10" Name="tbDescription" Text="{Binding Description}"></TextBox>
-            <Button Width="119" x:Name="BtnSaveClick" Content="Добавить" Margin="0 5 0 10" Click="AddProduct"/>
+            <Button Width="119" x:Name="BtnSaveClick" Content="Добавить" HorizontalAlignment="Center" Margin="0 5 0 10" Click="AddProduct"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
             <Image Width="300" Height="200" Name="ImageBlock">

@@ -41,6 +41,7 @@
                 <Label HorizontalAlignment="Left" FontSize="15">Описание</Label>
                 <TextBox Height="20" Margin="10" Name="tbDescription" Text="{Binding Description}"></TextBox>
                 <Button Width="119" x:Name="BtnSaveClick" Content="Сохранить" Margin="0 5 0 10" Click=" SaveProduct"/>
+                <Button x:Name="DeleteClick" Width="118" Height="20" Content="Удалить товар" Click="DeleteClick_Click"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2">
                 <Image Width="300" Height="200" Name="ImageBlock"></Image>

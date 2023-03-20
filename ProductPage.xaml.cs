@@ -141,7 +141,7 @@ namespace ExamWPF_by_NN_
                 bitmap.EndInit();
                 ImageBlock.Source = bitmap;
             }
-        }
+        }      
     }
 }
 

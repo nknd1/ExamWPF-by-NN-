@@ -110,15 +110,11 @@ namespace ExamWPF_by_NN_
             NavigationService.Navigate(Pages.Edit);
             return;
         }
-
-        private void cbProvider(object sender, SelectionChangedEventArgs e)
+        public void ReloadProducts()
         {
-            
-        }
-
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
+            Binding binding = new Binding();
+            binding.Source = dbconnection.Product.ToList();
+           // ProductList.SetBinding(ItemsControl.ItemsSourceProperty, binding);
         }
     }
 }

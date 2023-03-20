@@ -29,8 +29,8 @@
             </Grid.ColumnDefinitions>
             <TextBox  Grid.Column="0" Margin="5" TextChanged="TextBox_TextChanged"></TextBox>
             <ComboBox DisplayMemberPath="Name" Grid.Column="1" Margin="5" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding SortLists}"></ComboBox>
-            <ComboBox Grid.Column="2" Margin="5" DisplayMemberPath="Name" SelectedItem="{Binding SelectedSortCategory}" SelectionChanged="cbProvider"></ComboBox>
-            <ComboBox Grid.Column="3" Margin="5" SelectionChanged="ComboBox_SelectionChanged_1"></ComboBox>
+            <ComboBox Grid.Column="2" Margin="5" DisplayMemberPath="Name" SelectedItem="{Binding SelectedSortCategory}"></ComboBox>
+            <ComboBox Grid.Column="3" Margin="5"></ComboBox>
         </Grid>
         <ListView x:Name="ProductView" HorizontalAlignment="Stretch" Background="WhiteSmoke" Grid.Row="2" Grid.Column="1" SelectionChanged="ProductView_SelectionChanged">
             <ListView.ItemTemplate>

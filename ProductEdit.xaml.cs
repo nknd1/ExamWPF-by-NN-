@@ -27,9 +27,9 @@ namespace ExamWPF_by_NN_
         {
             InitializeComponent();
             this.dbconn = dbconnection;
-            DataContext= this;
+            DataContext = this;
             ProductBlock.DataContext = new Product();
-            cbCategory.DisplayMemberPath = "Name";           
+            cbCategory.DisplayMemberPath = "Name";
             Binding binding = new Binding();
             binding.Source = dbconnection.ProductCategory.ToList();
             cbCategory.DisplayMemberPath = "Name";
@@ -71,5 +71,16 @@ namespace ExamWPF_by_NN_
                 ImageBlock.Source = bitmap;
             }
         }
+
+        private void DeleteClick_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            dbconn.Dispose();
+            MessageBox.Show("Товар удалён");
+            dbconn.SaveChanges();
+        }      
     }
 }
