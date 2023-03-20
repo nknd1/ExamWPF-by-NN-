@@ -49,11 +49,15 @@ namespace ExamWPF_by_NN_
             cbCategory.DisplayMemberPath = "Name";
             cbCategory.SetBinding(ComboBox.ItemsSourceProperty, binding);
             
-            Binding bin = new Binding();
-            bin.Source = dbconnection.Provider.ToList();
+            Binding firstbin = new Binding();
+            firstbin.Source = dbconnection.Provider.ToList();
             cbProvider.DisplayMemberPath = "Name";
-            cbProvider.SetBinding(ComboBox.ItemsSourceProperty, bin);
+            cbProvider.SetBinding(ComboBox.ItemsSourceProperty, firstbin);
 
+            Binding lastbin = new Binding();
+            lastbin.Source = dbconnection.Manufacturer.ToList();
+            cbManufacturer.DisplayMemberPath = "Name";
+            cbManufacturer.SetBinding(ComboBox.ItemsSourceProperty, lastbin);
 
         }
 
