@@ -1,1 +1,2 @@
-# ExamWPF(by NN)
+# ExamWPF(PetShop)
+NetFramework 4.8
