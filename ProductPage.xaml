@@ -31,11 +31,11 @@
             <Label FontSize="15">Количество на складе</Label>
             <TextBox Name="tbQuantityInStock" FontSize="15" Margin="10" Foreground="Black" Text="{Binding QuantityInStock}"></TextBox>
             <Label FontSize="15">Единица измерения</Label>
-            <ComboBox Name="cbUnitOfMeasurement" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Unit}"></ComboBox>
+            <ComboBox Name="cbUnitOfMeasurement" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Unit1}"></ComboBox>
             <Label FontSize="15">Поставщик</Label>
-            <ComboBox Name="cbProvider" FontSize="15" Margin="10" Foreground="Black" SelectedItem="{Binding Provider}"></ComboBox>
+            <ComboBox Name="cbProvider" FontSize="15" Margin="10" Foreground="Black" SelectedItem="{Binding Provider1}"></ComboBox>
             <Label FontSize="15">Производитель</Label>
-            <ComboBox Name="cbManufacturer" FontSize="15" Margin="10" Foreground="black" SelectedItem="{Binding Manufacturer}"></ComboBox>
+            <ComboBox Name="cbManufacturer" FontSize="15" Margin="10" Foreground="black" SelectedItem="{Binding Manufacturer1}"></ComboBox>
             <Label FontSize="15">Стоимость за единицу</Label>
             <TextBox Name="tbPrice" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Cost}"></TextBox>
             <Label HorizontalAlignment="Left" FontSize="15">Описание</Label>
