@@ -28,12 +28,14 @@ namespace ExamWPF_by_NN_
         public Product Product { get; set; }
         public Provider Provider { get; set; }
         public Manufacturer Manufacturer { get; set; }
+        public Unit Unit { get; set; }
         public ProductPage(dbconnection dbconnection)
         {
             InitializeComponent();
             ProductCategory = new ProductCategory();  
             Provider = new Provider();
             Manufacturer = new Manufacturer();
+            Unit = new Unit();
 
             this.dbconn = dbconnection;
 
@@ -43,30 +45,37 @@ namespace ExamWPF_by_NN_
             cbCategory.DisplayMemberPath = "Name";
             cbProvider.DisplayMemberPath = "Name";
             cbManufacturer.DisplayMemberPath = "Name";
+            cbUnitOfMeasurement.DisplayMemberPath = "Name";
 
             Binding binding = new Binding();
             binding.Source = dbconnection.ProductCategory.ToList();
             cbCategory.DisplayMemberPath = "Name";
             cbCategory.SetBinding(ComboBox.ItemsSourceProperty, binding);
             
-            Binding firstbin = new Binding();
-            firstbin.Source = dbconnection.Provider.ToList();
+            Binding secondbin = new Binding();
+            secondbin.Source = dbconnection.Provider.ToList();
             cbProvider.DisplayMemberPath = "Name";
-            cbProvider.SetBinding(ComboBox.ItemsSourceProperty, firstbin);
+            cbProvider.SetBinding(ComboBox.ItemsSourceProperty, secondbin);
 
-            Binding lastbin = new Binding();
-            lastbin.Source = dbconnection.Manufacturer.ToList();
+            Binding thirdbin = new Binding();
+            thirdbin.Source = dbconnection.Manufacturer.ToList();
             cbManufacturer.DisplayMemberPath = "Name";
-            cbManufacturer.SetBinding(ComboBox.ItemsSourceProperty, lastbin);
+            cbManufacturer.SetBinding(ComboBox.ItemsSourceProperty, thirdbin);
+
+            Binding fourthbin = new Binding();
+            fourthbin.Source = dbconnection.Unit.ToList();
+            cbUnitOfMeasurement.DisplayMemberPath = "Name";
+            cbUnitOfMeasurement.SetBinding(ComboBox.ItemsSourceProperty, fourthbin);
+
+
 
         }
 
         private void AddProduct(object sender, RoutedEventArgs e)
         {
             Product product = ProductBlock.DataContext as Product;
-            product.Name = tbCategoryName.Text.Trim();         
-            product.Unit = tbUnitOfMeasurement.Text.Trim();
-            product.Description = tbDescription.Text.Trim();    
+            product.Name = tbCategoryName.Text.Trim();
+            product.Description = tbDescription.Text.Trim();
             if (product.Name.Length == 0)
             {
                 MessageBox.Show("Введите название товара");
@@ -90,6 +99,11 @@ namespace ExamWPF_by_NN_
             if (product.ArticleNumber.Length == 0)
             {
                 MessageBox.Show("Введите артикул");
+                return;
+            }
+            if (cbUnitOfMeasurement.SelectedItem == null)
+            {
+                MessageBox.Show("Нужно указать единицу измерения!");
                 return;
             }
             dbconn.Product.Add(product);
