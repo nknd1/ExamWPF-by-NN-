@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,29 +25,42 @@ namespace ExamWPF_by_NN_
     {
         private dbconnection dbconn;
         public ProductCategory ProductCategory { get; set; }
-        public Product product { get; set; }
+        public Product Product { get; set; }
+        public Provider Provider { get; set; }
+        public Manufacturer Manufacturer { get; set; }
         public ProductPage(dbconnection dbconnection)
         {
             InitializeComponent();
-            ProductCategory = new ProductCategory();
+            ProductCategory = new ProductCategory();  
+            Provider = new Provider();
+            Manufacturer = new Manufacturer();
+
             this.dbconn = dbconnection;
+
             DataContext = this;
+
             ProductBlock.DataContext = new Product();
             cbCategory.DisplayMemberPath = "Name";
+            cbProvider.DisplayMemberPath = "Name";
+            cbManufacturer.DisplayMemberPath = "Name";
+
             Binding binding = new Binding();
             binding.Source = dbconnection.ProductCategory.ToList();
             cbCategory.DisplayMemberPath = "Name";
             cbCategory.SetBinding(ComboBox.ItemsSourceProperty, binding);
+            
+            Binding bin = new Binding();
+            binding.Source = dbconnection.Provider.ToList();
+            cbProvider.DisplayMemberPath = "Name";
+            cbProvider.SetBinding(ComboBox.ItemsSourceProperty, bin);
         }
 
         private void AddProduct(object sender, RoutedEventArgs e)
         {
             Product product = ProductBlock.DataContext as Product;
-            product.Name = tbCategoryName.Text.Trim();
-            product.Provider = tbProvider.Text.Trim();
+            product.Name = tbCategoryName.Text.Trim();         
             product.Unit = tbUnitOfMeasurement.Text.Trim();
-            product.Description = tbDescription.Text.Trim();
-            product.Manufacturer = tbManufacturer.Text.Trim();
+            product.Description = tbDescription.Text.Trim();    
             if (product.Name.Length == 0)
             {
                 MessageBox.Show("Введите название товара");
@@ -54,15 +68,15 @@ namespace ExamWPF_by_NN_
             }
             if (cbCategory.SelectedItem == null)
             {
-                MessageBox.Show("Категория не выбрана");
+                MessageBox.Show("Выберите категорию");
                 return;
             }
-            if (product.Provider.Length == 0)
+            if (cbProvider.SelectedItem == null)
             {
                 MessageBox.Show("Укажите поставщика");
                 return;
             }
-            if (product.Manufacturer.Length == 0)
+            if (cbManufacturer == null)
             {
                 MessageBox.Show("Укажите производителя");
                 return;

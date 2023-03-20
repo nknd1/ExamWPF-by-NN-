@@ -27,15 +27,15 @@
             <Label FontSize="15">Название</Label>
             <TextBox Name="tbCategoryName" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Name}"></TextBox>
             <Label FontSize="15" Margin="3">Категория</Label>
-            <ComboBox SelectedItem="{Binding Category}" Margin="15" Name="cbCategory"></ComboBox>
+            <ComboBox Margin="15" Name="cbCategory" SelectedItem="{Binding ProductCategory}"></ComboBox>
             <Label FontSize="15">Количество на складе</Label>
             <TextBox Name="tbQuantityInStock" FontSize="15" Margin="10" Foreground="Black" Text="{Binding QuantityInStock}"></TextBox>
             <Label FontSize="15">Единица измерения</Label>
             <TextBox Name="tbUnitOfMeasurement" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Unit}"></TextBox>
             <Label FontSize="15">Поставщик</Label>
-            <TextBox Name="tbProvider" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Provider}"></TextBox>
+            <ComboBox Name="cbProvider" FontSize="15" Margin="10" Foreground="Black" SelectedItem="{Binding Provider}"></ComboBox>
             <Label FontSize="15">Производитель</Label>
-            <TextBox Name="tbManufacturer" FontSize="15" Margin="10" Foreground="black" Text="{Binding Manufacturer}"></TextBox>
+            <ComboBox Name="cbManufacturer" FontSize="15" Margin="10" Foreground="black" SelectedItem="{Binding Manufacturer}"></ComboBox>
             <Label FontSize="15">Стоимость за единицу</Label>
             <TextBox Name="tbPrice" FontSize="15" Margin="10" Foreground="Black" Text="{Binding Cost}"></TextBox>
             <Label HorizontalAlignment="Left" FontSize="15">Описание</Label>
@@ -43,7 +43,8 @@
             <Button Width="119" x:Name="BtnSaveClick" Content="Добавить" Margin="0 5 0 10" Click="AddProduct"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <Image Width="300" Height="200" Name="ImageBlock"></Image>
+            <Image Width="300" Height="200" Name="ImageBlock">
+            </Image>
             <Button Width="200" Height="20" Click="Button_Click">add</Button>
         </StackPanel>
         <Border Grid.Column="1">
