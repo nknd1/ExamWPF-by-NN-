@@ -53,6 +53,8 @@ namespace ExamWPF_by_NN_
             binding.Source = dbconnection.Provider.ToList();
             cbProvider.DisplayMemberPath = "Name";
             cbProvider.SetBinding(ComboBox.ItemsSourceProperty, bin);
+
+
         }
 
         private void AddProduct(object sender, RoutedEventArgs e)
