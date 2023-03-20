@@ -50,7 +50,7 @@ namespace ExamWPF_by_NN_
             cbCategory.SetBinding(ComboBox.ItemsSourceProperty, binding);
             
             Binding bin = new Binding();
-            binding.Source = dbconnection.Provider.ToList();
+            bin.Source = dbconnection.Provider.ToList();
             cbProvider.DisplayMemberPath = "Name";
             cbProvider.SetBinding(ComboBox.ItemsSourceProperty, bin);
 
