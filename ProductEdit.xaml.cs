@@ -74,13 +74,18 @@ namespace ExamWPF_by_NN_
 
         private void DeleteClick_Click(object sender, RoutedEventArgs e)
         {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-            dbconn.Dispose();
+            Product product = ProductBlock.DataContext as Product;
+            if (product == null) return;
+            dbconn.Product.Remove(product);
             MessageBox.Show("Товар удалён");
             dbconn.SaveChanges();
-        }      
+
+            Pages.List.ReloadProducts();
+        }
+
+        private void StopEdit(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack(); 
+        }
     }
 }

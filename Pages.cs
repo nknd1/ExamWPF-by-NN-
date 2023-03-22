@@ -14,6 +14,7 @@ namespace ExamWPF_by_NN_
         private static ProductList productList;
         private static AutorizationPage autorizationPage;
         private static ProductEdit productEdit;
+        private User user { get; set; }
         public static dbconnection dbconn
         {
             get

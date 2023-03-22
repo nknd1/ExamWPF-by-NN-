@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Net;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -75,7 +76,7 @@ namespace ExamWPF_by_NN_
         private void Find(string search)
         {
             search = search.ToLower();
-
+           
             var view = CollectionViewSource.GetDefaultView(ProductView.ItemsSource);
             if (view == null) return;
 

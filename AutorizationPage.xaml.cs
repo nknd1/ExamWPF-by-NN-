@@ -25,6 +25,7 @@ namespace ExamWPF_by_NN_
         private string captchaChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwyz1234567890";
         private string captchaCode = "";
         private Random random;
+        
         public AutorizationPage(dbconnection dbconnection)
         {
             InitializeComponent();
@@ -61,7 +62,7 @@ namespace ExamWPF_by_NN_
                 MessageBox.Show("Неверный логин/пароль");
                 return;
             }
-            NavigationService.Navigate(Pages.MenuPage);
+            NavigationService.Navigate(Pages.MenuPage);       
         }
         private void GenerationCaptcha()
         {
