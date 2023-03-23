@@ -47,7 +47,7 @@
                 <Button x:Name="StopEditS" Width="118" Height="20" Content="Отмена" Margin="0 8 0 10" Click="StopEdit"></Button>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="2">
-                <Image Width="400" Height="400" Name="ImageBlock"></Image>
+                <Image Width="300" Height="400" Name="ImageBlock"></Image>
                 <Button Content="Выбрать иозбражение" Width="150" Click="Button_Click"></Button>
             </StackPanel>
         </Grid>
