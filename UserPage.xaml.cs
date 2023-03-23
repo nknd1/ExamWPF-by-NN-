@@ -21,17 +21,24 @@ namespace ExamWPF_by_NN_
     public partial class UserPage : Page
     {
         private conntodb dbconn;
-        public User user;
-        public Role role;
-        
-        
-        
-        
-        
+        public User user { get; set; }
+        public Role role { get; set; }
+ 
         public UserPage(conntodb dbconnection)
         {
             InitializeComponent();
+            role = new Role();
             this.dbconn = dbconnection;
+            DataContext = this;
+
+            UserBlock.DataContext = new User();
+            cbRole.DisplayMemberPath = "RoleName";
+
+            Binding binding = new Binding();
+            binding.Source = dbconnection.ProductCategory.ToList();
+            cbRole.DisplayMemberPath = "RoleName";
+            cbRole.SetBinding(ComboBox.ItemsSourceProperty, binding);
+
         }
      
         private void AddPhoto(object sender, RoutedEventArgs e)

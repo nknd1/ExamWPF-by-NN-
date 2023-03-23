@@ -19,7 +19,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Grid.Row="1">
+        <StackPanel Grid.Column="1" Grid.Row="1" Name="UserBlock">
             <Label FontSize="20">Фамилия</Label>
             <TextBox Width="auto" Height="30"></TextBox>
             <Label FontSize="20">Имя</Label>
@@ -31,7 +31,7 @@
             <Label FontSize="20">Пароль</Label>
             <TextBox Width="auto" Height="30"></TextBox>
             <Label FontSize="20">Роль</Label>
-            <ComboBox Height="30" SelectedItem="{Binding Role}"></ComboBox>
+            <ComboBox Height="30" SelectedItem="{Binding Role}" x:Name="cbRole"></ComboBox>
             <Label FontSize="20">Фото</Label>
             <Image x:Name="PhotoBlock" Width="150" Height="100"></Image>
             <Button Click="AddPhoto" Width="100">Добавить фото</Button>
