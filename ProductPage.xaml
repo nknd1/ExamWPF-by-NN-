@@ -11,15 +11,15 @@
 
     <Grid Background="LightGreen">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1" x:Name="ProductBlock">
             <Label FontSize="15">Артикул</Label>
@@ -43,13 +43,13 @@
             <Button Width="119" x:Name="BtnSaveClick" Content="Добавить" HorizontalAlignment="Center" Margin="0 5 0 10" Click="AddProduct"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <Image Width="350" Height="400" Name="ImageBlock">
+            <Image Width="300" Height="400" Name="ImageBlock">
             </Image>
             <Button Width="200" Height="20" Click="Button_Click">Добавить изображение</Button>
         </StackPanel>
-        <Border Grid.Column="1">
-            <Button Content="back" Width="100" HorizontalAlignment="Left" Click="BackToMenu"></Button>
-        </Border>
+        <StackPanel Grid.Column="0">
+            <Button Content="back" Width="50" Height="30" HorizontalAlignment="Left" Click="BackToMenu"></Button>
+        </StackPanel>
     </Grid>
 </Page>
 
