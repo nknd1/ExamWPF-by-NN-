@@ -20,13 +20,13 @@ namespace ExamWPF_by_NN_
     /// </summary>
     public partial class AutorizationPage : Page
     {
-        private dbconnection dbconnection;
+        private conntodb dbconnection;
         private bool isCaptchaRequired = false;
         private string captchaChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwyz1234567890";
         private string captchaCode = "";
         private Random random;
         
-        public AutorizationPage(dbconnection dbconnection)
+        public AutorizationPage(conntodb dbconnection)
         {
             InitializeComponent();
             this.dbconnection = dbconnection;

@@ -22,8 +22,8 @@ namespace ExamWPF_by_NN_
     /// </summary>
     public partial class ProductEdit : Page
     {
-        private dbconnection dbconn;
-        public ProductEdit(dbconnection dbconnection)
+        private conntodb dbconn;
+        public ProductEdit(conntodb dbconnection)
         {
             InitializeComponent();
             this.dbconn = dbconnection;

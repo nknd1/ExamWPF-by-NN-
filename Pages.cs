@@ -8,24 +8,24 @@ namespace ExamWPF_by_NN_
 {
     public class Pages
     {
-        private static dbconnection dbconnection;
+        private static conntodb conntodb;
         private static ProductPage productPage;
         private static Menu menuPage;
         private static ProductList productList;
         private static AutorizationPage autorizationPage;
         private static ProductEdit productEdit;
         private User user { get; set; }
-        public static dbconnection dbconn
+        public static conntodb dbconnection
         {
             get
             {
-                if (dbconnection == null)
+                if (conntodb == null)
                 {
-                    dbconnection = new dbconnection();
+                    conntodb = new conntodb();
                 }
-                return dbconnection;
+                return conntodb;
             }
-            set { dbconnection = value; }
+            set { conntodb = value; }
         }
         public static ProductPage Product
         {
@@ -33,7 +33,7 @@ namespace ExamWPF_by_NN_
             {
                 if (productPage == null)
                 {
-                    productPage = new ProductPage(dbconn);
+                    productPage = new ProductPage(dbconnection);
                 }
                 return productPage;
             }
@@ -55,7 +55,7 @@ namespace ExamWPF_by_NN_
             {
                 if (productList == null)
                 {
-                    productList = new ProductList(dbconn);
+                    productList = new ProductList(dbconnection);
                 }
                 return productList;
             }
@@ -66,7 +66,7 @@ namespace ExamWPF_by_NN_
             {
                 if (autorizationPage == null)
                 {
-                    autorizationPage = new AutorizationPage(dbconn);
+                    autorizationPage = new AutorizationPage(dbconnection);
                 }
                 return autorizationPage;
             }
@@ -77,7 +77,7 @@ namespace ExamWPF_by_NN_
             {
                 if (productEdit == null)
                 {
-                    productEdit = new ProductEdit(dbconn);
+                    productEdit = new ProductEdit(dbconnection);
                 }
                 return productEdit;
             }

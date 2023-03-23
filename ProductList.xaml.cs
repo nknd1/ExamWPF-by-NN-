@@ -28,12 +28,12 @@ namespace ExamWPF_by_NN_
     }
     public partial class ProductList : Page
     {
-        dbconnection dbconnection;
+        conntodb dbconnection;
         public List<SortItem> SortLists { get; set; }
         public SortItem SelectedSortItem { get; set; }
         
         public SortItem SelectedSortProductCategory { get; set; }
-        public ProductList(dbconnection dbconnection)
+        public ProductList(conntodb dbconnection)
         {
             InitializeComponent();
             this.dbconnection = dbconnection;

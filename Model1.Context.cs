@@ -13,10 +13,10 @@ namespace ExamWPF_by_NN_
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbconnection : DbContext
+    public partial class conntodb : DbContext
     {
-        public dbconnection()
-            : base("name=dbconnection")
+        public conntodb()
+            : base("name=conntodb")
         {
         }
     

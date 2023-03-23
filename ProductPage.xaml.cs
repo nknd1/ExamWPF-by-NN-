@@ -23,13 +23,13 @@ namespace ExamWPF_by_NN_
     /// </summary>
     public partial class ProductPage : Page
     {
-        private dbconnection dbconn;
+        private conntodb dbconn;
         public ProductCategory ProductCategory { get; set; }
         public Product Product { get; set; }
         public Provider Provider { get; set; }
         public Manufacturer Manufacturer { get; set; }
         public Unit Unit { get; set; }
-        public ProductPage(dbconnection dbconnection)
+        public ProductPage(conntodb dbconnection)
         {
             InitializeComponent();
             ProductCategory = new ProductCategory();  

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище dbconnect" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище connecttodb" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Manufacturer">
           <Key>
             <PropertyRef Name="Name" />
@@ -59,7 +59,7 @@
           <Property Name="DiscountAmount" Type="tinyint" Nullable="false" />
           <Property Name="QuantityInStock" Type="int" Nullable="false" />
           <Property Name="Status" Type="nvarchar(max)" />
-          <Property Name="Unit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Unit" Type="varchar" MaxLength="50" />
           <Property Name="Provider" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductCategory">
@@ -194,7 +194,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_Unit">
-          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Unit">
@@ -205,7 +205,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище dbconnectContainer">
+        <EntityContainer Name="Хранилище connecttodbContainer">
           <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderPickupPoint" EntityType="Self.OrderPickupPoint" Schema="dbo" store:Type="Tables" />
@@ -251,10 +251,11 @@
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="dbconnect" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="connecttodb" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Manufacturer">
           <Key>
             <PropertyRef Name="Name" />
@@ -315,7 +316,7 @@
           <Property Name="DiscountAmount" Type="Byte" Nullable="false" />
           <Property Name="QuantityInStock" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Provider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Manufacturer1" Relationship="Self.FK_Product_Manufacturer" FromRole="Product" ToRole="Manufacturer" />
           <NavigationProperty Name="OrderProduct" Relationship="Self.FK__OrderProd__Produ__7A3223E8" FromRole="Product" ToRole="OrderProduct" />
@@ -448,7 +449,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_Unit">
-          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Unit">
@@ -471,7 +472,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbconnection" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="conntodb" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="OrderPickupPoint" EntityType="Self.OrderPickupPoint" />
@@ -522,16 +523,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище dbconnectContainer" CdmEntityContainer="dbconnection">
+        <EntityContainerMapping StorageEntityContainer="Хранилище connecttodbContainer" CdmEntityContainer="conntodb">
           <EntitySetMapping Name="Manufacturer">
-            <EntityTypeMapping TypeName="dbconnect.Manufacturer">
+            <EntityTypeMapping TypeName="connecttodb.Manufacturer">
               <MappingFragment StoreEntitySet="Manufacturer">
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="dbconnect.Order">
+            <EntityTypeMapping TypeName="connecttodb.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
@@ -541,7 +542,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderPickupPoint">
-            <EntityTypeMapping TypeName="dbconnect.OrderPickupPoint">
+            <EntityTypeMapping TypeName="connecttodb.OrderPickupPoint">
               <MappingFragment StoreEntitySet="OrderPickupPoint">
                 <ScalarProperty Name="PickupPointID" ColumnName="PickupPointID" />
                 <ScalarProperty Name="Postindex" ColumnName="Postindex" />
@@ -552,7 +553,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderProduct">
-            <EntityTypeMapping TypeName="dbconnect.OrderProduct">
+            <EntityTypeMapping TypeName="connecttodb.OrderProduct">
               <MappingFragment StoreEntitySet="OrderProduct">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="ProductArticleNumber" ColumnName="ProductArticleNumber" />
@@ -561,14 +562,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderStatus">
-            <EntityTypeMapping TypeName="dbconnect.OrderStatus">
+            <EntityTypeMapping TypeName="connecttodb.OrderStatus">
               <MappingFragment StoreEntitySet="OrderStatus">
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="dbconnect.Product">
+            <EntityTypeMapping TypeName="connecttodb.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ArticleNumber" ColumnName="ArticleNumber" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -586,21 +587,21 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductCategory">
-            <EntityTypeMapping TypeName="dbconnect.ProductCategory">
+            <EntityTypeMapping TypeName="connecttodb.ProductCategory">
               <MappingFragment StoreEntitySet="ProductCategory">
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Provider">
-            <EntityTypeMapping TypeName="dbconnect.Provider">
+            <EntityTypeMapping TypeName="connecttodb.Provider">
               <MappingFragment StoreEntitySet="Provider">
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="dbconnect.Role">
+            <EntityTypeMapping TypeName="connecttodb.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
@@ -608,7 +609,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="dbconnect.sysdiagrams">
+            <EntityTypeMapping TypeName="connecttodb.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -619,14 +620,14 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Unit">
-            <EntityTypeMapping TypeName="dbconnect.Unit">
+            <EntityTypeMapping TypeName="connecttodb.Unit">
               <MappingFragment StoreEntitySet="Unit">
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="dbconnect.User">
+            <EntityTypeMapping TypeName="connecttodb.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />

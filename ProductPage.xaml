@@ -9,7 +9,7 @@
       Title="ProductPage">
 
 
-    <Grid Background="white">
+    <Grid Background="LightGreen">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
