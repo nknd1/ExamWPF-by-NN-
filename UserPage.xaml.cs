@@ -45,5 +45,10 @@ namespace ExamWPF_by_NN_
         {
 
         }
+
+        private void toUserList(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(Pages.ListUser);
+        }
     }
 }
