@@ -117,6 +117,9 @@
     <Compile Include="ProductPage.xaml.cs">
       <DependentUpon>ProductPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProductPageRole.xaml.cs">
+      <DependentUpon>ProductPageRole.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Provider.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -164,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProductPageRole.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

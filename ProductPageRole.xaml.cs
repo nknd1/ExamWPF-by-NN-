@@ -16,27 +16,14 @@ using System.Windows.Shapes;
 namespace ExamWPF_by_NN_
 {
     /// <summary>
-    /// Логика взаимодействия для UserPage.xaml
+    /// Логика взаимодействия для ProductPageRole.xaml
     /// </summary>
-    public partial class UserPage : Page
+    public partial class ProductPageRole : Page
     {
-        private conntodb dbconn;
-        public User user;
-        public Role role;
-        
-        
-        
-        
-        
-        public UserPage(conntodb dbconnection)
+        private conntodb dbconnection;
+        public ProductPageRole(conntodb dbconnection)
         {
             InitializeComponent();
-            this.dbconn = dbconnection;
-        }
-     
-        private void AddPhoto(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

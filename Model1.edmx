@@ -108,6 +108,7 @@
           <Property Name="UserLogin" Type="nvarchar(max)" Nullable="false" />
           <Property Name="UserPassword" Type="nvarchar(max)" Nullable="false" />
           <Property Name="UserRole" Type="int" Nullable="false" />
+          <Property Name="UserPhoto" Type="image" />
         </EntityType>
         <Association Name="FK__OrderProd__Order__793DFFAF">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
@@ -374,6 +375,7 @@
           <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK__User__UserRole__72910220" FromRole="User" ToRole="Role" />
+          <Property Name="UserPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Product_Manufacturer">
           <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
@@ -628,6 +630,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="connecttodb.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />

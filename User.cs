@@ -21,6 +21,7 @@ namespace ExamWPF_by_NN_
         public string UserLogin { get; set; }
         public string UserPassword { get; set; }
         public int UserRole { get; set; }
+        public byte[] UserPhoto { get; set; }
     
         public virtual Role Role { get; set; }
     }

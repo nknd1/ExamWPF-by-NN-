@@ -15,6 +15,7 @@ namespace ExamWPF_by_NN_
         private static AutorizationPage autorizationPage;
         private static ProductEdit productEdit;
         private static UserPage userPage;
+        private static ProductPageRole pageRole;
         private static User user { get; set; }
         public static conntodb dbconnection
         {
@@ -81,6 +82,28 @@ namespace ExamWPF_by_NN_
                     productEdit = new ProductEdit(dbconnection);
                 }
                 return productEdit;
+            }
+        }
+        public static ProductPageRole ProductRole
+        {
+            get
+            {
+                if(pageRole == null)
+                {
+                    pageRole = new ProductPageRole(dbconnection);
+                }
+                return pageRole;
+            }
+        }
+        public static UserPage Users
+        {
+            get
+            {
+                if (userPage == null)
+                {
+                    userPage = new UserPage(dbconnection);
+                }
+                return userPage;
             }
         }
     }

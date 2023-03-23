@@ -34,5 +34,10 @@ namespace ExamWPF_by_NN_
         {
             NavigationService.Navigate(Pages.List);
         }
+
+        private void GoToAddUser(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(Pages.Users);
+        }
     }
 }
